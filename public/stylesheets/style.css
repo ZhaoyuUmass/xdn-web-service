@@ -1,0 +1,254 @@
+
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+.glyphicon {
+  margin-right: 8px;
+}
+
+.fit { /* set relative picture size */
+  max-width: 100%;
+  max-height: 100%;
+}
+.center {
+  display: block;
+  margin: auto;
+}
+
+ul.plain {
+  list-style-type: none;
+}
+/*
+.nav{
+  margin: 0 0 0 0;
+  font-size: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #3a3a3a;
+}
+
+.nav li {
+  float: left;
+}
+
+.nav li a, .dropbtn {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav li a:hover, .ddown:hover .dropbtn {
+  background-color: #c7c7c7;
+}
+
+.nav li .active {
+  background-color: #000000;
+}
+
+.nav li.ddown {
+  display: inline-block;
+}
+
+.nav .ddown-content {
+  display: none;
+  position: absolute;
+  background-color: #c7c7c7;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgb(225, 225, 255);
+}
+
+.nav .ddown-content a {
+  color: #ffffff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav .ddown-content a:hover {
+  background-color: #f1f1f1
+}
+
+.nav .ddown:hover .ddown-content {
+  display: block;
+}
+*/
+
+
+.inline-div {
+  display:inline-block;
+  float: left;
+  padding: 30px;
+  border-left: 1px solid #000000;
+  white-space: pre;
+}
+
+hr {
+  border: none;
+  height: 4px;
+  /* Set the hr color */
+  color: #333; /* old IE */
+  background-color: #333; /* Modern Browsers */
+}
+
+.right {
+  text-align: right;
+  float: right;
+}
+
+.optgroup {
+  font-size:14px;
+}
+
+.form-style-7{
+  margin:20px auto;
+  background:#fff;
+  border-radius:2px;
+  padding:10px;
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+.form-style-7 h1{
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0px 0px 0px 0px;
+  color: #5C5C5C;
+}
+.form-style-7 ul{
+  list-style:none;
+  padding:10px;
+  margin:10px;
+}
+.form-style-7 li{
+  display: block;
+  padding: 9px;
+  border:1px solid #DDDDDD;
+  margin-bottom: 30px;
+  border-radius: 3px;
+}
+
+.form-style-7 li > label{
+  display: block;
+  float: left;
+  margin-top: -10px;
+  background: #FFFFFF;
+  height: 20px;
+  padding: 2px 5px 2px 5px;
+  color: #B9B9B9;
+  font-size: 12px;
+  overflow: hidden;
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+.form-style-7 input[type="text"],
+.form-style-7 input[type="date"],
+.form-style-7 input[type="datetime"],
+.form-style-7 input[type="email"],
+.form-style-7 input[type="number"],
+.form-style-7 input[type="search"],
+.form-style-7 input[type="time"],
+.form-style-7 input[type="url"],
+.form-style-7 input[type="password"],
+.form-style-7 textarea,
+.form-style-7 select
+{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  display: block;
+  outline: none;
+  border: none;
+  height: 80px;
+  line-height: 25px;
+  font-size: 16px;
+  padding: 0;
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+.form-style-7 input[type="text"]:focus,
+.form-style-7 input[type="date"]:focus,
+.form-style-7 input[type="datetime"]:focus,
+.form-style-7 input[type="email"]:focus,
+.form-style-7 input[type="number"]:focus,
+.form-style-7 input[type="search"]:focus,
+.form-style-7 input[type="time"]:focus,
+.form-style-7 input[type="url"]:focus,
+.form-style-7 input[type="password"]:focus,
+.form-style-7 textarea:focus,
+.form-style-7 select:focus
+{
+}
+.form-style-7 li > span{
+  background: #F3F3F3;
+  display: block;
+  padding: 3px;
+  margin: 0 -9px -9px -9px;
+  text-align: center;
+  color: #C0C0C0;
+  /* font-family: Georgia, "Times New Roman", Times, serif; */
+  font-size: 11px;
+}
+.form-style-7 textarea{
+  resize:none;
+}
+.form-style-7 input[type="submit"],
+.form-style-7 input[type="button"]{
+  background: #2471FF;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  border-bottom: 3px solid #5994FF;
+  border-radius: 3px;
+  color: #D2E2FF;
+}
+.form-style-7 input[type="submit"]:hover,
+.form-style-7 input[type="button"]:hover{
+  background: #6B9FFF;
+  color:#fff;
+}
+
+.CodeMirror {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid;
+  width: 600px;
+  height: 420px;
+}
+
+.example .CodeMirror {
+  border: none;
+  height: auto;
+  width: auto;
+}
+
+pre.minicom {
+  overflow: auto;
+  font-size: 10pt;
+  white-space: pre;
+  color: black;
+  background-color: #e8e8e8;
+  margin-left:30px;
+  margin-right:30px;
+  border-top: 1px dashed black;
+  border-left: 1px dashed black;
+  border-right: 1px dashed black;
+  border-bottom: 1px dashed black;
+  padding: 10px 10px 10px 10px;
+}
+
+.btnstyle{
+  width: 150px;
+}

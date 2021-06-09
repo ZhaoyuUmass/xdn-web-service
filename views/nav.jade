@@ -1,0 +1,37 @@
+//-
+   Created by gaozy on 8/10/17.
+    div(class="nav")
+        ul
+            li(style="float:right")
+                a(href="/register")
+                    span(class="glyphicon glyphicon-user")
+                    | Register
+            li(style="float:right")
+                a(href="/login")
+                    span(class="glyphicon glyphicon-log-in")
+                    | Login
+            li
+                a(href="/") PGNS
+            li(class="ddown")
+                a(href="#" class="dropbtn") Document
+                div(class="ddown-content")
+                    a(href="/doc/activepns") About PGNS
+                    a(href="/doc/activecode") How-To Guide
+                    a(href="/doc/activequery") API Reference
+                    a(href="/doc/example") Examples
+
+nav(class="navbar navbar-expand-md navbar-light fixed-top bg-info")
+
+    a(class="navbar-brand text-light" href="/") XDN
+    button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation")
+        span(class="navbar-toggler-icon")
+
+
+    div(class="collapse navbar-collapse" id="navbarsExampleDefault")
+        ul(class="navbar-nav ml-auto")
+            li(class="nav-item active")
+                a(class="nav-link text-light" href="/") Home
+            li(class="nav-item")
+                a(class="nav-link text-light" href="doc") Documents
+            li(class="nav-item")
+                a(class="nav-link text-light" href="login") Login

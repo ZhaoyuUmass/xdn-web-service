@@ -1,0 +1,111 @@
+//
+   Created by gaozy on 6/6/21.
+
+extends ../template/layout
+
+block content
+    main(role="main")
+    div(class="container")
+        div(class="card")
+            div(class="card-body")
+                h2(class="card-title") XDN Web Service Demo page
+                hr
+                h5 Getting-Started Quick
+                p(class="card-text" align="justify").
+                    A page to show how XDN web service works.
+                    Please fill out the following form to deploy your Docker application on XDN.
+                // p(class="card-text" align="justify") Find out how to use this page on
+                // a(href="http://date.cs.umass.edu/gaozy/xdn-service.html" target="_blank") XDN instruction page.
+                //ul() The meaning of the fields in the following form is described here:
+                //    li() Email: your email address.
+                //    li() Username:
+                //    li()
+                //    li()
+                p(class="card-text" align="justify").
+                    We have a default domain name "xdnedge.xyz" for our customers to use.
+                    Once you successfully run your Docker application on XDN, you will get a
+                    subdomain name of the default "xdnedge.xyz". The subdomain name is a
+                    concatenation of your username, your docker name, and the default domain name.
+                    For example, a subdomain for a username "www" and a docker name "demo" is
+                    "www.demo.xdnedge.xyz". You can use the link
+                a(href="http://www.demo.xdnedge.xyz" target="_blank") http://www.demo.xdnedge.xyz
+                p(class="card-text" align="justify").
+                    to access the Docker app you just created.
+                hr
+        form(class="form-group" id="answer" action="/demo/result" method="POST" onsubmit="return validateForm()")
+
+            div(class="card")
+                div(class="card-body")
+                    h4 Create an XDN service
+                div(class="card-body")
+                    label(for="email") Email
+                    input(type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email")
+                    small(id="emailHelp" class="form-text text-muted") Please provide a valid email address.
+
+                div(class="card-body")
+                    label(for="name") Username
+                    input(type="text" class="form-control" name="name" id="name" aria-describedby="emailHelp" placeholder="Enter username")
+                    small(id="nameHelp" class="form-text text-muted") Please pick a username
+
+                div(class="card-body")
+                    label(for="docker") Docker name
+                    input(type="text" class="form-control" name="docker" id="docker" aria-describedby="dockerHelp" placeholder="Enter docker name")
+                    small(id="dockerHelp" class="form-text text-muted") Please pick a name for the Docker app
+
+                div(class="card-body")
+                    label(for="url") Docker URL
+                    input(type="text" class="form-control" name="url" id="url" aria-describedby="urlHelp" placeholder="Enter docker URL")
+                    small(id="urlHelp" class="form-text text-muted") Please provide a URL for the Docker app. E.g., a Docker hub registry URL "https://registry.hub.docker.com/repository/docker/oversky710/xdn-demo-app", or "oversky710/xdn-demo-app" in short.
+
+                div(class="card-body")
+                    label(for="port") Port mapping
+                    input(type="text" class="form-control" name="port" id="port" aria-describedby="portHelp" placeholder="Enter a port mapping")
+                    small(id="portHelp" class="form-text text-muted") Please enter the port mapping from your exposed host port number to the container port number, e.g., 80:3000, where 80 is the exposed port number and 3000 is the container's port number.
+                //div(class="card-body")
+                //    label(id="age") Please review the agreement
+                //    br
+                //    div(class='form-check form-check-inline')
+                //        input(class="form-check-input" type="radio" name="inlineRadioOptions0" id="yes" value=1)
+                //        label(class="form-check-label" for="yes") Agreed
+                //    div(class='form-check form-check-inline')
+                //        input(class="form-check-input" type="radio" name="inlineRadioOptions0" id="no" value=0)
+                //        label(class="form-check-label" for="no") Not Agreed
+                div
+                    button(type="submit" class="btn btn-primary") Create a service
+
+    script(type="text/javascript").
+        function validateForm() {
+            const REGEX="[0-9]{1,5}\:[0-9]{1,5}";
+            var finished = true;
+            if (document.getElementById("answer")["email"].value == '')
+                finished = false;
+            if (document.getElementById("answer")["name"].value == '')
+                finished = false;
+            if (document.getElementById("answer")["docker"].value == '')
+                finished = false;
+            if (document.getElementById("answer")["url"].value == '')
+                finished = false;
+            if (document.getElementById("answer")["port"].value == '')
+                finished = false;
+
+
+            // window.alert("email:"+document.getElementById("answer")["email"].value);
+            // window.alert("name:"+document.getElementById("answer")["name"].value);
+            // window.alert("finished:" + finished);
+            // finished = true;
+            if (!finished) {
+                window.alert("Please finish filling out the form before submission.");
+                return false;
+            }
+
+            if (document.getElementById("answer")["port"].value.match(REGEX) == null) {
+                window.alert("Please use the correct format for your port mapping, e.g., 80:3000");
+                return false;
+            }
+
+            if (confirm('Create your service now?')) {
+                document.getElementById("answer").submit();
+            } else {
+                return false;
+            }
+        }

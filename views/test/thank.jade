@@ -1,0 +1,13 @@
+//
+   Created by gaozy on 6/9/21.
+
+extends ../template/layout
+
+block content
+    div(class="jumbotron text-center")
+        h2(class="display-3") Service Created Successfully!
+        p Please use the following link to access your service
+        a(class="lead" href=text target="_blank")=text
+
+        hr
+        p() Having questions? <a href="mailto: zhaoyugao@umass.edu">Contact us</a>

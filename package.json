@@ -1,0 +1,35 @@
+{
+  "name": "xdn-web-service",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ZhaoyuUmass/xdn-web-service.git"
+  },
+  "author": "Zhaoyu Gao",
+  "license": "UMASS",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "~1.8.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "0.8.2",
+    "cookie-parser": "1.4.0",
+    "debug": "^2.6.9",
+    "emailjs": "^1.0.12",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "jade": "*",
+    "mocha": "~1.14.0",
+    "mongodb": "2.0.45",
+    "mongoose": "*",
+    "morgan": "^1.10.0",
+    "passport": "*",
+    "serve-favicon": "^2.5.0",
+    "should": "~2.1.0",
+    "stylus": "^0.54.7"
+  }
+}
