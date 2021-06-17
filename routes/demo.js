@@ -21,6 +21,9 @@ router.get('/', function (req, res) {
 	res.render(DEMO);
 });
 
+router.get('/result', function (req, res) {
+	res.render(THANK, {text: 'N/A'});
+});
 
 router.post('/result', function (req, res) {
 	// console.log(">>>>>>>>>>>> "+req.body);
