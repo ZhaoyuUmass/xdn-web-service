@@ -8,6 +8,22 @@ block content
         h2(class="display-3") Service Created Successfully!
         p Please use the following link to access your service
         a(class="lead" href=text target="_blank")=text
+        p.
+            Click the 'Start' button to send requests to the app at the rate of 1 req/sec.
+            The counter value will be incremented upon every request.
+            The service reconfiguration policy will reconfigure the service upon every 10 requests, i.e.,
+            if the value is increased by 10, then you should see that the value stops increasing
+            and the service is temporarily unavailable due to the service reconfiguration.
+            The DNS TTL value is set to 30 seconds, so after 30 second, you should see the service is back online.
+            The reconfiguration policy will move the service between the two XDN servers of our platform.
+            The two servers are located in Virginia and Massachussets respectively.
+            You should see a difference of the measured latency displayed on the page between every 10 requests.
+        p().
+            <b>Note</b>: the service will only be hosted for 10 minutes on our platform.
+            | If you want to create a long-running XDN application,
+            | please register an account on <a href="/">XDN</a>.
 
         hr
         p() Having questions? <a href="mailto: zhaoyugao@umass.edu">Contact us</a>
+
+        

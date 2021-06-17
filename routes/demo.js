@@ -13,28 +13,31 @@ const THANK = 'test/thank';
 
 const DEFAULT_DOMAIN = 'xdnedge.xyz';
 
+DOCKERS={'1': {name:'nodejs', url:'oversky710/xdn-nodejs-counter-app', port:3000, exp_port:80},
+	'2': {name: '', url:'', port:0, exp_port:0},
+	'3': {name: '', url:'', port:0, exp_port:0}};
 
 router.get('/', function (req, res) {
 	res.render(DEMO);
 });
 
 
-
 router.post('/result', function (req, res) {
+	// console.log(">>>>>>>>>>>> "+req.body);
+	// console.log(">>>>>>>>>>>> "+JSON.stringify(req.body));
 	var result = JSON.parse(JSON.stringify(req.body));
-	result.clientIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-	result.agent = req.get('user-agent');
-	result.time = new Date();
-	// console.log(">>>>>>>>>>>> "+JSON.stringify(result));
+	//result.clientIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+	//result.agent = req.get('user-agent');
+	//result.time = new Date();
+	console.log(">>>>>>>>>>>> "+JSON.stringify(result));
 
-	var word = result.port.split(":");
+	var docker_name = DOCKERS[result.docker].name;
+	var url = DOCKERS[result.docker].url;
+	var port = DOCKERS[result.docker].port;
+	var exp_port = DOCKERS[result.docker].exp_port;
 
-
-	var port = Number(word[1]);
-	var exp_port = Number(word[0]);
-
-	var name = result.name+"."+result.docker+"."+DEFAULT_DOMAIN;
-	var state = {NAME: result.docker, IMAGE_URL: result.url, VOL: result.docker, PORT:port, PUBLIC_EXPOSE_PORT: exp_port};
+	var name = result.name+"."+docker_name+"."+DEFAULT_DOMAIN;
+	var state = {NAME: docker_name, IMAGE_URL: url, VOL: docker_name, PORT:port, PUBLIC_EXPOSE_PORT: exp_port};
 
 	const parameters = {
 		name: name,
