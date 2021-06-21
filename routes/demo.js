@@ -73,6 +73,7 @@ router.post('/result', function (req, res) {
 			console.log(str);
 			var r = JSON.parse(JSON.stringify(str));
 			res.render(THANK, {text: 'http://'+name});
+			delete_service(name);
 		});
 	};
 
@@ -84,5 +85,55 @@ router.post('/result', function (req, res) {
 
 	request.end();
 });
+
+async function delete_service(name) {
+	const delay = 1000*60*10; // 10 minutes
+	await sleep(delay);
+
+	console.log(new Date()+": about to delete service "+name);
+
+	const parameters = {
+		name: name,
+		type: "DELETE"
+	};
+
+	const get_request_args = querystring.stringify(parameters);
+	var options = {
+		host: 'ns1.xdn-service.xyz',
+		port: 5300,
+		// path: '/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
+		path: '/?'+get_request_args
+	};
+
+	var callback = function(response) {
+		var str = '';
+
+		//another chunk of data has been received, so append it to `str`
+		response.on('data', function (chunk) {
+			str += chunk;
+		});
+
+		//the whole response has been received, so we just print it out here
+		response.on('end', function () {
+			console.log(str);
+			console.log("Service "+name+" successfully deleted!");
+		});
+	};
+
+	const request = http.request(options, callback);
+
+	request.on('error', (error) => {
+		console.log(error.message);
+	});
+
+	request.end();
+}
+
+function sleep(ms) {
+	return new Promise((resolve) => {
+		setTimeout(resolve, ms);
+	});
+}
+
 
 module.exports = router;
