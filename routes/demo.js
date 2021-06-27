@@ -122,6 +122,8 @@ router.get('/delete', function(req, res) {
 			console.log(str);
 			console.log("Service "+name+" successfully deleted!");
 		});
+		
+		res.send(200);
 	};
 
 	const request = http.request(options, callback);
