@@ -13,7 +13,7 @@ const THANK = 'test/thank';
 
 const DEFAULT_DOMAIN = 'xdnedge.xyz';
 
-DOCKERS={'1': {name:'nodejs', url:'oversky710/xdn-nodejs-counter-app', port:3000, exp_port:80},
+DOCKERS={'1': {name:'nodejs', url:'oversky710/tutorial-1', port:3000, exp_port:80},
 	'2': {name: '', url:'', port:0, exp_port:0},
 	'3': {name: '', url:'', port:0, exp_port:0}};
 
@@ -74,6 +74,50 @@ router.post('/result', function (req, res) {
 			var r = JSON.parse(JSON.stringify(str));
 			res.render(THANK, {text: 'http://'+name});
 			delete_service(name);
+		});
+	};
+
+	const request = http.request(options, callback);
+
+	request.on('error', (error) => {
+		console.log(error.message);
+	});
+
+	request.end();
+});
+
+router.post('/delete', function(req, res){
+
+	// var result = JSON.parse(JSON.stringify(req.body));
+	var name = req.name;
+
+	console.log(new Date()+": about to delete service "+name);
+
+	const parameters = {
+		name: name,
+		type: "DELETE"
+	};
+
+	const get_request_args = querystring.stringify(parameters);
+	var options = {
+		host: 'ns1.xdn-service.xyz',
+		port: 5300,
+		// path: '/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
+		path: '/?'+get_request_args
+	};
+
+	var callback = function(response) {
+		var str = '';
+
+		//another chunk of data has been received, so append it to `str`
+		response.on('data', function (chunk) {
+			str += chunk;
+		});
+
+		//the whole response has been received, so we just print it out here
+		response.on('end', function () {
+			console.log(str);
+			console.log("Service "+name+" successfully deleted!");
 		});
 	};
 
