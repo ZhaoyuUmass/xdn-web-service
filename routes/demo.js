@@ -92,8 +92,8 @@ router.post('/delete', function(req, res) {
 router.get('/delete', function(req, res) {
 
 	console.log(req);
-	
-	var name = req.name;
+
+	var name = req.query.name;
 
 	console.log(new Date()+": about to delete service "+name);
 
