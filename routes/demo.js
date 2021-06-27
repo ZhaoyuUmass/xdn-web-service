@@ -91,7 +91,8 @@ router.post('/delete', function(req, res) {
 
 router.get('/delete', function(req, res) {
 
-// var result = JSON.parse(JSON.stringify(req.body));
+	console.log(req);
+	
 	var name = req.name;
 
 	console.log(new Date()+": about to delete service "+name);
@@ -122,7 +123,7 @@ router.get('/delete', function(req, res) {
 			console.log(str);
 			console.log("Service "+name+" successfully deleted!");
 		});
-		
+
 		res.send(200);
 	};
 
