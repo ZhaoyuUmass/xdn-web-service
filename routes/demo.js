@@ -73,7 +73,7 @@ router.post('/result', function (req, res) {
 			console.log(str);
 			var r = JSON.parse(JSON.stringify(str));
 			res.render(THANK, {text: 'http://'+name});
-			delete_service(name);
+			// delete_service(name);
 		});
 	};
 
